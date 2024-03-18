@@ -9,7 +9,8 @@ public class MainVote {
         trieu.vote(Candidate.TRUMP);
         trieu.vote(Candidate.TRUMP);
         than.vote(Candidate.TRUMP);
-        lam.vote(Candidate.TRUMP);
+        than.vote(Candidate.BIDEN);
+        lam.vote(Candidate.BIDEN);
         toan.vote(Candidate.TRUMP);
         Election.getInstance().inKetQua();
     }
