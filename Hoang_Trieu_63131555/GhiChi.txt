@@ -1,0 +1,8 @@
+class SortCollection<T>{
+List<T> list;
+//Nhớ viết construtor
+}
+
+class SortProduceByName extents SortCollection<Product>{
+
+}
