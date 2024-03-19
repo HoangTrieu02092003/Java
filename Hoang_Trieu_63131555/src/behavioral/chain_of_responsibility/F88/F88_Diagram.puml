@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class ChoVayF88{
+    - abstract int hanMucXuLyVay;
+    - String ten;
+    - String chucVu;
+    + abstract capCaoHon(ChoVayF88 capCao);
+    + abstract String xuLyVay(int soTienVay);
+}
+
+ChoVayF88 <|-- NhanVien
+ChoVayF88 <|-- ChuTich
+NhanVien --> ChoVayF88:capCaoHon
+MainF88 ..>"*" ChoVayF88
+@enduml
