@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class ATM{
+    - int menhGia;
+    + ATM thietLapMenhGiaThapHon(ATM atm);
+    + void rutTien(int soTien);
+}
+
+class MenhGiaThapNhat{
+    + void rutTien(int soTien);
+}
+
+Main --> ATM
+ATM <|-- MenhGiaATM
+ATM <|-- MenhGiaThapNhat
+MenhGiaATM --> ATM:menhGiaThapHon
+note left of ATM::rutTien
+    tinính
+end note
+
+
+@enduml

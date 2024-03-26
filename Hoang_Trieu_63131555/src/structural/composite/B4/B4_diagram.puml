@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class KeHoachHocTap {
+    String ten
+    abstract add(KeHoachHocTap k)
+    abstract remove(KeHoachHocTap k)
+    + abstract int soTinChi()
+    + abstract int hocPhi()
+    + abstract String thongTin()
+    }
+
+class MonHoc {
+    String ten
+    int soTinChi
+    int hocPhiTC
+}
+
+class KeHoachChung {
+    +int soTinChi()
+}
+
+KeHoachHocTap <|-- MonHoc
+KeHoachHocTap <|--* KeHoachChung
+KeHoachChung *--->"*" KeHoachHocTap: List
+
+
+note right of KeHoachChung
+    Cai dat chung cho : Ky hoc, nam hoc, khoa hoc
+end note
+
+note right of KeHoachChung::soTC
+    t = 0;
+    Duyet qua cac KeHoachHocTap trong list
+        t = t + k.soTinChi()
+    return t
+end note
+
+@enduml

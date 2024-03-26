@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class BNode{
+    int value;
+    abstract void addL(BNode n);
+    abstract void addR(BNode n);
+    abstract void removeL(BNode n);
+    abstract void removeR(BNode n);
+    String duyet();
+}
+
+class InnerNode
+class Leaft
+
+BNode <|--- InnerNode
+BNode <--- InnerNode: right
+BNode <--- InnerNode: left
+BNode <|--- Leaft
+
+note right of BNode
+    
+end note
+
+@enduml
