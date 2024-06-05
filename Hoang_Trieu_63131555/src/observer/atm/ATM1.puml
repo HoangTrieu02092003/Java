@@ -1,0 +1,29 @@
+@startuml
+abstract class Subject {
+    + attach(observer: Observer): void
+    + detach(observer: Observer): void
+    + notifyObservers(message: String): void
+}
+
+interface Observer {
+    {abstract} + update(message: String): void
+}
+
+class TaiKhoan {
+    - soDu: int
+    + kiemTraSoDu(): boolean
+    + nhanThongBao(message: String): void
+}
+
+class ATM {
+    + kiemTraTienRut(soTien: int): boolean
+    + rutTien(soTien: int): void
+}
+
+Subject <|-- ATM
+Subject <|-- TaiKhoan
+Observer <|-- TaiKhoan
+Observer <|-- ATM
+
+TaiKhoan o-- ATM: observes
+@enduml

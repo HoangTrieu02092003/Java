@@ -1,0 +1,44 @@
+@startuml
+    abstract GiaiThuong{
+       String tenGiai
+       List<String> boSo
+       + {abstract} void DoVeSo (String soVe)
+       + {abstract} GiaiThuong GiaiKeTiep(GiaiThuong giaiThuong)
+    }
+
+    class GiaiThapNhat{
+
+    }
+
+    class GiaiThongThuong{
+
+    }
+
+    class GiaiKK{
+
+    }
+
+    note bottom of GiaiKK
+       Đặt ngay sau giải đặc biệt
+       Nếu trúng giải KK vẫn tiếp tục dò số
+
+       String sub = soVe.substring(soVe.length() - giaiDB.length())
+
+       for (int i=0; i<sub.length(); i++){
+            if (sub.chartAt(i) == giaiDB.chartAt(i))
+                count ++;
+       }
+       if (count == giaiDB.length() - 1)
+            sout
+    end note
+
+    GiaiThapNhat <|--- GiaiThuong
+
+    GiaiThongThuong <|--- GiaiThuong
+
+    GiaiThongThuong <--- GiaiThuong: giaiKeTiep
+
+    GiaiKK <-- GiaiThuong
+
+
+@enduml

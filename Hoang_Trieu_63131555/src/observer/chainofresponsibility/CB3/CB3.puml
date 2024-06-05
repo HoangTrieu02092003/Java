@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class TienDienBacThang {
+    String tenBac;
+    int min, max, gia;
+    + {abstract} TienDienBacThang keTiep(TienDienBacThang k);
+    + {abstract} int tinhTienDien(int soKW);
+}
+TienDienBacThang <|-- BacCaoNhat
+TienDienBacThang <|-- BacThongThuong
+
+note bottom of BacCaoNhat
+    Phương thuc tinh tien dien:
+    return (soKW - min) * gia;
+end note
+note bottom of BacThongThuong
+    Phương thuc tinh tien dien:
+    if(soKW <= max)
+        return (soKW - min) * gia;
+    else
+        return (max - min) * gia + TienDienBacKeTiep;
+end note
+
+
+@enduml

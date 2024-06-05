@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+abstract class Computer {
+    String MainBoard, CPU, RAM, Storage, Screen
+    int vMainBoard, vCPU, vRAM, vStorage, vScreen
+    abstract String build()
+    abstract int value()
+}
+
+abstract class ComputerDecorator implements Computer {
+    Computer computer
+    abstract String build()
+    abstract int value()
+}
+
+class BasicComputer implements Computer {
+    String build()
+    int value()
+}
+
+class CPUDecorator extends ComputerDecorator {
+    public void add()
+    public void replace()
+}
+class RAMDecorator extends ComputerDecorator {
+    public void add()
+    public void replace()
+}
+class StorageDecorator extends ComputerDecorator {
+    public void add()
+    public void replace()
+}
+class ScreenDecorator extends ComputerDecorator {
+    public void add()
+    public void replace()
+}
+
+ComputerDecorator --> Computer:Computer computer
+@enduml

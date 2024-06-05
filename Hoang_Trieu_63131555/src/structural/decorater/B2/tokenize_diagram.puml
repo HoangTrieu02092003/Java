@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface Tokenize {
+    List<String> tokenize();
+}
+
+abstract class TokenizeDecorator
+
+class TachTu {
+    String s
+}
+
+class LoaiBoTuDung {
+    # List<String> stopwords
+}
+
+Tokenize <|.. TachTu
+Tokenize <|.. TokenizeDecorator
+TokenizeDecorator <|-- LoaiBoTuDung
+TokenizeDecorator <|-- LoaiBoDauCau
+TokenizeDecorator --> Tokenize : token
+@enduml

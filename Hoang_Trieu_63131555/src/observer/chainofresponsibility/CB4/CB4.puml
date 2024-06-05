@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+   abstract GiaiThuong{
+       String tenGiai
+       List<String> boSo
+       + {abstract} void DoVeSo (String soVe)
+       + {abstract} GiaiThuong GiaiKeTiep(GiaiThuong giaiThuong)
+    }
+
+    class GiaiThapNhat{
+
+    }
+
+    class GiaiThongThuong{
+
+    }
+    GiaiThapNhat <|--- GiaiThuong
+
+    GiaiThongThuong <|--- GiaiThuong
+
+    GiaiThongThuong <--- GiaiThuong: giaiKeTiep
+
+
+
+@enduml

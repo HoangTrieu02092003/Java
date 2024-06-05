@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+  abstract XepLoai{
+       String hocLuc
+       int diem
+       + {abstract} void xetHocLuc (int diem)
+       + {abstract} XepLoai LoaiKeTiep(XepLoai xepLoai)
+    }
+
+    class HocLucThapNhat{
+
+    }
+
+    class HocLucThongThuong{
+
+    }
+    HocLucThapNhat <|--- XepLoai
+
+    HocLucThongThuong <|--- XepLoai
+
+    HocLucThongThuong <--- XepLoai: loaiKeTiep
+
+@enduml

@@ -1,0 +1,40 @@
+ @startuml
+skinparam classAttributeIconSize 0
+
+interface Mylistener<T> {
+    + void listen(T t)
+}
+
+class MyStream<T> {
+    - listeners: List<Listener<T>>
+    + void addEvent(T event)
+    + void addListener(listen l)
+}
+
+note bottom of MyStream
+    Phuong thuc addEvent:
+        duyet qua cac listener trong listeners goi phuong thuc listen tren listener
+end note
+
+class MonHoc {
+
+}
+
+class DataAcces {
+    - monHocs: List<MonHoc>
+    - stream: Stream<MonHoc>
+    - static instance: DataAccessor
+    - DataAccessor()
+    + static getInstance(): DataAccessor
+    + themMonHoc(MonHoc monHoc)
+    + capNhatMonHoc(MonHoc monHoc)
+    + xoaMonHoc(MonHoc monHoc)
+}
+
+
+MyStream o--> Mylistener : listens
+Mylistener <-- MyClient
+MyClient --> MyStream
+
+
+@enduml

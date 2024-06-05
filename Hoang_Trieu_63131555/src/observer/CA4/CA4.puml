@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface TopicListener {
+    void listen(TinTuc t)
+}
+
+class Topic {
+    - List<TinTuc> t;
+    + void dangKy(TopicListener listener)
+    + void huyDangKy(TopicListener listener)
+    + void themMoi(TinTuc t)
+    + void capNhat(TinTuc t)
+}
+
+TopicListener <|.. MemberA
+TopicListener <|.. MemberB
+Topic o--> TopicListener: listeners
+MemberA -up-> Topic: topic
+MemberB -up-> Topic: topic
+
+class MemberA {
+}
+
+class MemberB {
+    List<TinTuc> list;
+}
+
+
+@enduml
